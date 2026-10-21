@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Selin Veteriner Kliniği | Sakarya</title>
+<meta name="description" content="Selin Veteriner Kliniği - Serdivan / Sakarya. Online randevu, aşı, muayene, cerrahi, laboratuvar ve pet kuaför hizmetleri.">
+<meta name="theme-color" content="#17626b">
+<link rel="icon" href="selinveterinerlogo.png">
+<link rel="apple-touch-icon" href="selinveterinerlogo.png">
+<meta property="og:title" content="Selin Veteriner Kliniği | Serdivan, Sakarya">
+<meta property="og:description" content="Online randevu, aşı, muayene, cerrahi ve pet kuaför hizmetleri.">
+<meta property="og:image" content="banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+// ——— Klinik bilgileri: değiştirmen gereken tek yer ———
+const CONFIG = {
+  ad: "Selin Veteriner Kliniği",
+  telefon: "0553 312 54 54",
+  telefonHam: "+905533125454",
+  whatsapp: "905533125454",                // ülke kodu dahil, + yok
+  adres: "Arabacıalanı Mah. 551. Sk. Manavoğlu Apt. No: 2B, 54050 Serdivan/Sakarya",
+  maps: "https://maps.app.goo.gl/AueoSoiWnQG13Mc1A",
+  instagram: "https://www.instagram.com/selinveterinerklinigi/",
+  acilSaat: "7/24 acil danışma",
+  logo: "selinveterinerlogo.png",
+  banner: "banner.png"
+};
+tailwind.config = { theme: { extend: {
+  fontFamily: { sans: ['"Plus Jakarta Sans"','system-ui','sans-serif'] },
+  // logodan alınan petrol yeşili + mercan
+  colors: { brand: { 50:'#eff7f8',100:'#d2e8ea',500:'#1f7d88',600:'#17626b',700:'#124e56',900:'#0b343a' },
+            coral: '#f4826b' }
+}}};
+</script>
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { -webkit-tap-highlight-color: transparent; }
+  .safe-b { padding-bottom: env(safe-area-inset-bottom); }
+  input, select, textarea, button { font-family: inherit; }
+  input[type=date] { min-height: 56px; }
+  ::selection { background: #99f6e4; }
+</style>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased">
+
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-stone-200">
+  <div class="mx-auto max-w-5xl px-4 h-16 flex items-center justify-between gap-3">
+    <a href="#" class="flex items-center gap-2 min-w-0">
+      <img src="selinveterinerlogo.png" alt="Selin Veteriner Kliniği" class="h-11 w-11 object-contain shrink-0">
+      <span class="min-w-0">
+        <span class="block font-extrabold leading-tight truncate">Selin Veteriner</span>
+        <span class="block text-[11px] text-stone-500 leading-tight">Kliniği · Serdivan</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1 text-sm font-medium text-stone-600">
+      <a class="px-3 py-2 rounded-xl hover:bg-stone-100" href="#hizmetler">Hizmetler</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-stone-100" href="#saatler">Saatler</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-stone-100" href="#iletisim">İletişim</a>
+      <a class="ml-2 px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700" href="#randevu">Randevu Al</a>
+    </nav>
+    <a id="hdrCall" class="md:hidden grid place-items-center w-11 h-11 rounded-2xl bg-brand-50 text-brand-700 text-lg" aria-label="Telefon et">📞</a>
+  </div>
+</header>
+
+<section id="banner" class="bg-[#f6f1e7]">
+  <img src="banner.png" alt="Selin Veteriner Kliniği — minik dostlarınız için sevgiyle"
+       class="w-full max-w-6xl mx-auto block" width="2172" height="724" fetchpriority="high">
+</section>
+
+<section class="mx-auto max-w-5xl px-4 pt-7 pb-6">
+  <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-700 bg-brand-50 border border-brand-100 px-3 py-1.5 rounded-full">
+    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span><span id="acikDurum">·</span>
+  </span>
+  <h1 class="mt-4 text-[2rem] leading-[1.15] md:text-5xl font-extrabold tracking-tight">
+    Dostunuz için<br><span class="text-brand-600">30 saniyede randevu.</span>
+  </h1>
+  <p class="mt-3 text-stone-600 md:text-lg max-w-xl">Muayene, aşı, cerrahi ve laboratuvar hizmetleri. Formu doldurun, talebiniz WhatsApp üzerinden anında bize ulaşsın.</p>
+  <div class="mt-6 flex flex-col sm:flex-row gap-3">
+    <a href="#randevu" class="h-14 px-7 rounded-2xl bg-brand-600 text-white font-bold grid place-items-center active:scale-[.98] transition shadow-lg shadow-brand-600/20">Randevu Al</a>
+    <a id="heroCall" class="h-14 px-7 rounded-2xl bg-white border border-stone-200 font-semibold grid place-items-center active:scale-[.98] transition">Hemen Ara</a>
+  </div>
+  <dl class="mt-8 grid grid-cols-3 gap-3 text-center">
+    <div class="bg-white rounded-2xl border border-stone-200 shadow-sm p-3"><dt class="text-[11px] text-stone-500">Deneyim</dt><dd class="font-bold">10+ yıl</dd></div>
+    <div class="bg-white rounded-2xl border border-stone-200 shadow-sm p-3"><dt class="text-[11px] text-stone-500">Acil</dt><dd class="font-bold">7/24</dd></div>
+    <div class="bg-white rounded-2xl border border-stone-200 shadow-sm p-3"><dt class="text-[11px] text-stone-500">Dost</dt><dd class="font-bold">5.000+</dd></div>
+  </dl>
+</section>
+
+<section id="hizmetler" class="mx-auto max-w-5xl px-4 py-8">
+  <h2 class="text-2xl font-extrabold tracking-tight">Hizmetler</h2>
+  <p class="text-stone-600 mt-1 text-sm">Karta dokunun, randevu formunda hizmet olarak seçilir.</p>
+  <div class="mt-5 grid grid-cols-2 md:grid-cols-3 gap-3" id="hizmetGrid"></div>
+</section>
+
+<section id="randevu" class="mx-auto max-w-5xl px-4 py-8">
+  <div class="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm">
+    <div class="p-5 border-b border-stone-100">
+      <h2 class="text-2xl font-extrabold tracking-tight">Online Randevu</h2>
+      <div class="mt-4 flex items-center gap-2" id="stepDots"></div>
+    </div>
+
+    <form id="randevuForm" class="p-5" novalidate>
+      <div data-step="1">
+        <p class="font-semibold">Dostunuz hangi türden?</p>
+        <div class="mt-3 grid grid-cols-2 gap-3" data-pick="tur"></div>
+        <label class="block mt-5 text-sm font-semibold" for="petAd">Dostunuzun adı</label>
+        <input id="petAd" name="petAd" required placeholder="Örn. Pamuk" class="mt-2 w-full h-14 px-4 rounded-2xl border border-stone-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-50 outline-none">
+      </div>
+
+      <div data-step="2" hidden>
+        <p class="font-semibold">Hangi hizmet için geliyorsunuz?</p>
+        <div class="mt-3 grid gap-3" data-pick="hizmet"></div>
+      </div>
+
+      <div data-step="3" hidden>
+        <p class="font-semibold">Tarih ve saat</p>
+        <input type="date" name="tarih" required class="mt-3 w-full px-4 rounded-2xl border border-stone-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-50 outline-none">
+        <p class="mt-4 text-sm font-semibold text-stone-700">Uygun saatler</p>
+        <div class="mt-2 grid grid-cols-3 gap-2" data-pick="saat"></div>
+        <p id="saatUyari" class="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-xl p-3 hidden"></p>
+      </div>
+
+      <div data-step="4" hidden>
+        <p class="font-semibold">Size nasıl ulaşalım?</p>
+        <label class="block mt-4 text-sm font-semibold" for="ad">Adınız soyadınız</label>
+        <input id="ad" name="ad" required placeholder="Ad Soyad" class="mt-2 w-full h-14 px-4 rounded-2xl border border-stone-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-50 outline-none">
+        <label class="block mt-4 text-sm font-semibold" for="tel">Telefon</label>
+        <input id="tel" name="tel" required type="tel" inputmode="tel" placeholder="05xx xxx xx xx" class="mt-2 w-full h-14 px-4 rounded-2xl border border-stone-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-50 outline-none">
+        <label class="block mt-4 text-sm font-semibold" for="notu">Not <span class="font-normal text-stone-400">(opsiyonel)</span></label>
+        <textarea id="notu" name="notu" rows="3" placeholder="Şikayet, geçmiş hastalık, kullanılan ilaç…" class="mt-2 w-full p-4 rounded-2xl border border-stone-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-50 outline-none resize-none"></textarea>
+        <div id="ozet" class="mt-4 text-sm bg-stone-50 border border-stone-200 rounded-2xl p-4 space-y-1"></div>
+      </div>
+
+      <p id="hata" class="mt-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl p-3 hidden"></p>
+
+      <div class="mt-6 flex gap-3">
+        <button type="button" id="geri" class="h-14 px-5 rounded-2xl border border-stone-200 font-semibold hidden">Geri</button>
+        <button type="button" id="ileri" class="flex-1 h-14 rounded-2xl bg-brand-600 text-white font-semibold active:scale-[.98] transition">Devam</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="saatler" class="mx-auto max-w-5xl px-4 py-8 grid md:grid-cols-2 gap-4">
+  <div class="bg-white rounded-3xl border border-stone-200 p-5">
+    <h2 class="text-xl font-extrabold">Çalışma Saatleri</h2>
+    <ul id="saatListe" class="mt-4 text-sm divide-y divide-stone-100"></ul>
+    <p class="mt-4 text-xs text-stone-500">Acil durumlarda saat dışında da arayabilirsiniz.</p>
+  </div>
+  <div class="bg-white rounded-3xl border border-stone-200 p-5" id="iletisim">
+    <h2 class="text-xl font-extrabold">İletişim & Konum</h2>
+    <p id="adresMetin" class="mt-3 text-sm text-stone-600 leading-relaxed"></p>
+    <div class="mt-4 grid gap-2 text-sm">
+      <a id="lnkTel" class="flex items-center gap-3 h-14 px-4 rounded-2xl bg-stone-50 border border-stone-200 font-medium"><span>📞</span><span id="telMetin"></span></a>
+      <a id="lnkWa" target="_blank" rel="noopener" class="flex items-center gap-3 h-14 px-4 rounded-2xl bg-stone-50 border border-stone-200 font-medium"><span>💬</span>WhatsApp'tan yaz</a>
+      <a id="lnkMap" target="_blank" rel="noopener" class="flex items-center gap-3 h-14 px-4 rounded-2xl bg-stone-50 border border-stone-200 font-medium"><span>📍</span>Yol tarifi al</a>
+      <a id="lnkIg" target="_blank" rel="noopener" class="flex items-center gap-3 h-14 px-4 rounded-2xl bg-stone-50 border border-stone-200 font-medium"><span>📷</span>Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer class="mx-auto max-w-5xl px-4 pt-6 pb-32 md:pb-10 text-xs text-stone-500">
+  <p>© <span id="yil"></span> Selin Veteriner Kliniği · Sakarya</p>
+  <p class="mt-1">Bu site üzerinden alınan randevular klinik onayı sonrası kesinleşir.</p>
+</footer>
+
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-stone-200 safe-b">
+  <div class="grid grid-cols-3 gap-2 p-2">
+    <a id="barCall" class="h-14 rounded-2xl bg-stone-100 grid place-items-center text-xs font-semibold text-center leading-tight">📞<br>Ara</a>
+    <a id="barWa" target="_blank" rel="noopener" class="h-14 rounded-2xl bg-stone-100 grid place-items-center text-xs font-semibold text-center leading-tight">💬<br>WhatsApp</a>
+    <a href="#randevu" class="h-14 rounded-2xl bg-brand-600 text-white grid place-items-center text-xs font-semibold text-center leading-tight">📅<br>Randevu</a>
+  </div>
+</div>
+
+<script>
+const HIZMETLER = [
+  { ad:"Muayene", ikon:"🩺", not:"Genel sağlık kontrolü" },
+  { ad:"Aşı & Kuduz", ikon:"💉", not:"Aşı takvimi takibi" },
+  { ad:"Cerrahi", ikon:"🏥", not:"Kısırlaştırma, operasyon" },
+  { ad:"Laboratuvar", ikon:"🔬", not:"Kan, idrar, görüntüleme" },
+  { ad:"Diş Sağlığı", ikon:"🦷", not:"Tartar temizliği" },
+  { ad:"Pet Kuaför", ikon:"✂️", not:"Tıraş, tırnak, banyo" }
+];
+const TURLER = [ {ad:"Kedi",ikon:"🐈"}, {ad:"Köpek",ikon:"🐕"}, {ad:"Kuş",ikon:"🦜"}, {ad:"Diğer",ikon:"🐾"} ];
+// 0=Pazar .. 6=Cumartesi · [açılış, kapanış] veya null (kapalı)
+const SAATLER = { 1:[9,19], 2:[9,19], 3:[9,19], 4:[9,19], 5:[9,19], 6:[10,17], 0:null };
+const GUNLER = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+
+const $ = s => document.querySelector(s);
+const secim = { tur:"", hizmet:"", saat:"" };
+let adim = 1;
+const SON = 4;
+
+const tel = "tel:" + CONFIG.telefonHam;
+const wa = m => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(m);
+
+$("#yil").textContent = new Date().getFullYear();
+$("#telMetin").textContent = CONFIG.telefon;
+$("#adresMetin").textContent = CONFIG.adres;
+["#hdrCall","#heroCall","#barCall","#lnkTel"].forEach(s => $(s).href = tel);
+["#barWa","#lnkWa"].forEach(s => $(s).href = wa("Merhaba, bilgi almak istiyorum."));
+$("#lnkMap").href = CONFIG.maps;
+$("#lnkIg").href = CONFIG.instagram;
+
+const aralik = d => SAATLER[d.getDay()];
+(function durum(){
+  const n = new Date(), a = aralik(n);
+  const acik = a && n.getHours() >= a[0] && n.getHours() < a[1];
+  $("#acikDurum").textContent = acik ? "Şu an açık · " + a[1] + ":00'a kadar" : CONFIG.acilSaat;
+})();
+
+$("#hizmetGrid").innerHTML = HIZMETLER.map(h =>
+  '<button type="button" data-hizmet="' + h.ad + '" class="text-left bg-white rounded-2xl border border-stone-200 p-4 hover:border-brand-500 active:scale-[.98] transition">' +
+  '<span class="text-2xl">' + h.ikon + '</span>' +
+  '<span class="block mt-2 font-semibold text-sm">' + h.ad + '</span>' +
+  '<span class="block text-[11px] text-stone-500">' + h.not + '</span></button>').join("");
+
+$("#hizmetGrid").addEventListener("click", e => {
+  const b = e.target.closest("[data-hizmet]");
+  if(!b) return;
+  secim.hizmet = b.dataset.hizmet;
+  adim = Math.max(adim, 2);
+  ciz();
+  $("#randevu").scrollIntoView({ block:"start" });
+});
+
+function grup(key, liste, ekstra){
+  const el = document.querySelector('[data-pick="' + key + '"]');
+  el.innerHTML = liste.map(o => {
+    const aktif = secim[key] === o.v;
+    return '<button type="button" data-v="' + o.v + '" class="' + (ekstra||"") +
+      ' min-h-[52px] px-4 py-3 rounded-2xl border text-sm font-semibold transition ' +
+      (aktif ? "border-brand-600 bg-brand-50 text-brand-700 ring-2 ring-brand-100" : "border-stone-200 bg-white") +
+      '">' + o.l + '</button>';
+  }).join("");
+  el.onclick = e => {
+    const b = e.target.closest("[data-v]");
+    if(!b) return;
+    secim[key] = b.dataset.v;
+    hataGoster(null);
+    ciz();
+  };
+}
+
+// o güne ait 30 dk'lık slotlar; kapalıysa null
+function saatSecenekleri(){
+  const v = $("[name=tarih]").value;
+  if(!v) return [];
+  const a = aralik(new Date(v + "T00:00"));
+  if(!a) return null;
+  const bugun = new Date();
+  const bugunStr = new Date(bugun.getTime() - bugun.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  const out = [];
+  for(let h = a[0]; h < a[1]; h++) for(const m of [0,30]){
+    if(v === bugunStr && (h < bugun.getHours() || (h === bugun.getHours() && m <= bugun.getMinutes()))) continue;
+    out.push(String(h).padStart(2,"0") + ":" + String(m).padStart(2,"0"));
+  }
+  return out;
+}
+
+function ciz(){
+  document.querySelectorAll("[data-step]").forEach(s => s.hidden = +s.dataset.step !== adim);
+  $("#stepDots").innerHTML = [1,2,3,4].map(i =>
+    '<span class="h-1.5 rounded-full flex-1 ' + (i <= adim ? "bg-brand-600" : "bg-stone-200") + '"></span>').join("");
+  $("#geri").classList.toggle("hidden", adim === 1);
+  $("#ileri").textContent = adim === SON ? "Randevu Talebi Gönder" : "Devam";
+
+  grup("tur", TURLER.map(t => ({ v:t.ad, l:'<span class="text-xl">' + t.ikon + '</span> ' + t.ad })), "text-left");
+  grup("hizmet", HIZMETLER.map(h => ({ v:h.ad,
+    l:'<span class="text-xl">' + h.ikon + '</span> ' + h.ad +
+      '<span class="block text-[11px] font-normal text-stone-500">' + h.not + '</span>' })), "text-left");
+
+  const s = saatSecenekleri();
+  const uyari = $("#saatUyari");
+  const saatEl = document.querySelector('[data-pick="saat"]');
+  if(s === null || (s && s.length === 0)){
+    secim.saat = "";
+    saatEl.innerHTML = "";
+    uyari.textContent = s === null ? "Bu gün kapalıyız, lütfen başka bir gün seçin."
+      : ($("[name=tarih]").value ? "Bu gün için uygun saat kalmadı." : "Önce tarih seçin.");
+    uyari.classList.remove("hidden");
+  } else {
+    uyari.classList.add("hidden");
+    grup("saat", s.map(x => ({ v:x, l:x })), "text-center");
+  }
+
+  if(adim === SON){
+    const f = $("#randevuForm");
+    $("#ozet").innerHTML = [
+      ["Dost", secim.tur + " · " + f.petAd.value],
+      ["Hizmet", secim.hizmet],
+      ["Tarih", f.tarih.value + " " + secim.saat]
+    ].map(r => '<div class="flex justify-between gap-3"><span class="text-stone-500">' + r[0] +
+      '</span><span class="font-semibold text-right">' + r[1] + '</span></div>').join("");
+  }
+}
+
+function hataGoster(msg){
+  const h = $("#hata");
+  if(!msg){ h.classList.add("hidden"); return true; }
+  h.textContent = msg;
+  h.classList.remove("hidden");
+  h.scrollIntoView({ block:"nearest" });
+  return false;
+}
+
+function gecerli(){
+  const f = $("#randevuForm");
+  if(adim === 1){
+    if(!secim.tur) return hataGoster("Lütfen bir tür seçin.");
+    if(!f.petAd.value.trim()) return hataGoster("Dostunuzun adını yazın.");
+  }
+  if(adim === 2 && !secim.hizmet) return hataGoster("Lütfen bir hizmet seçin.");
+  if(adim === 3){
+    if(!f.tarih.value) return hataGoster("Lütfen tarih seçin.");
+    if(!secim.saat) return hataGoster("Lütfen uygun bir saat seçin.");
+  }
+  if(adim === 4){
+    if(!f.ad.value.trim()) return hataGoster("Adınızı yazın.");
+    if(f.tel.value.replace(/\D/g,"").length < 10) return hataGoster("Geçerli bir telefon numarası yazın.");
+  }
+  return hataGoster(null);
+}
+
+$("#ileri").onclick = () => {
+  if(!gecerli()) return;
+  if(adim < SON){ adim++; ciz(); $("#randevu").scrollIntoView({ block:"start" }); return; }
+  const f = $("#randevuForm");
+  const msg = [
+    "🐾 RANDEVU TALEBİ",
+    "Sahip: " + f.ad.value,
+    "Telefon: " + f.tel.value,
+    "Dost: " + f.petAd.value + " (" + secim.tur + ")",
+    "Hizmet: " + secim.hizmet,
+    "Tarih: " + f.tarih.value + " " + secim.saat,
+    f.notu.value.trim() ? "Not: " + f.notu.value.trim() : null
+  ].filter(Boolean).join("\n");
+  window.open(wa(msg), "_blank");
+  f.innerHTML = '<div class="text-center py-10">' +
+    '<div class="text-5xl">✅</div>' +
+    '<p class="mt-4 text-xl font-extrabold">Talebiniz hazır!</p>' +
+    '<p class="mt-2 text-stone-600 text-sm max-w-sm mx-auto">WhatsApp penceresi açılmadıysa aşağıdaki butonla gönderebilirsiniz. Randevunuz klinik onayı sonrası kesinleşir.</p>' +
+    '<a href="' + wa(msg) + '" target="_blank" rel="noopener" class="mt-6 w-full sm:w-auto inline-grid place-items-center h-14 px-6 rounded-2xl bg-brand-600 text-white font-semibold">WhatsApp\'ta Gönder</a>' +
+    '<a href="' + tel + '" class="mt-3 w-full sm:w-auto inline-grid place-items-center h-14 px-6 rounded-2xl border border-stone-200 font-semibold">Telefonla Ara</a></div>';
+};
+
+$("#geri").onclick = () => { adim--; hataGoster(null); ciz(); $("#randevu").scrollIntoView({ block:"start" }); };
+
+const tarihEl = $("[name=tarih]");
+const bugun = new Date();
+tarihEl.min = new Date(bugun.getTime() - bugun.getTimezoneOffset()*60000).toISOString().slice(0,10);
+tarihEl.onchange = () => { secim.saat = ""; ciz(); };
+
+$("#saatListe").innerHTML = [1,2,3,4,5,6,0].map(d => {
+  const a = SAATLER[d];
+  return '<li class="flex justify-between py-2.5 ' + (new Date().getDay() === d ? "font-bold text-brand-700" : "") + '">' +
+    '<span>' + GUNLER[d] + '</span><span>' + (a ? a[0] + ":00 – " + a[1] + ":00" : "Kapalı") + '</span></li>';
+}).join("");
+
+ciz();
+</script>
+</body>
+</html>
